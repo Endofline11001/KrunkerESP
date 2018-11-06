@@ -1,4 +1,8 @@
 # KrunkerESP/Aimbot
+
+### Userscript: https://github.com/xF4b3r/krunker/raw/master/userscript.user.js
+
+IGNORE REST OF STEPS AND CLICK THAT LINK IF YOU HAVE TAMPERMONKEY!
 Esp nametags and right click aimbot for Krunker using tampermokey
 
 To install hack, make sure you have the TamperMonkey extension, found here: https://tampermonkey.net/
