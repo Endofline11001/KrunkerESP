@@ -37,6 +37,7 @@ class Hack {
             aimSettings: true,
             noRecoil: true,
             tracers: true,
+            autoRespawn: false,
         }
         this.settingsMenu = [];
         this.aimbot = {
@@ -161,6 +162,15 @@ class Hack {
             set(t) {
                 self.settings.aimSettings = t;
                 self.changeSettings();
+            }
+        }, {
+            name: "Auto Respawn",
+            val: 0,
+            html() {
+                return `<label class='switch'><input type='checkbox' onclick='window.hack.setSetting(8, this.checked)' ${self.settingsMenu[8].val ? "checked" : ""}><span class='slider'></span></label>`
+            },
+            set(t) {
+                self.settings.autoRespawn = t;
             }
         }];
     }
@@ -372,6 +382,11 @@ class Hack {
         this.me.recoilAnimYOld = this.me.recoilAnimY;
         this.me.recoilAnimY = 0;
     }
+    
+    autoRespawn() {
+        if (!this.settings.autoRespawn) return
+        if (this.me && this.me.y == undefined && !document.pointerLockElement) this.camera.toggle(true)
+    }
 
     initAimbot() {
         let self = this
@@ -420,8 +435,9 @@ class Hack {
         const target = this.getTarget()
         if (target) {
             if (this.settings.autoAim === 3 && this.me.aimVal === 1) return void this.camera.camLookAt(null)
+            target.y += this.hooks.config.playerHeight - this.hooks.config.cameraHeight - this.hooks.config.crouchDst * target.crouchVal
             target.y -= (this.me.recoilAnimY * this.hooks.config.recoilMlt) * 25
-            this.camera.camLookAt(target.x, target.y + target.height - ((this.hooks.config.headScale / 3) * 2) - (this.hooks.config.crouchDst * target.crouchVal), target.z)
+            this.camera.camLookAt(target.x, target.y, target.z)
             if (this.settings.autoAim === 1) {
                 if (this.camera.mouseDownR !== 1) {
                     this.camera.mouseDownR = 1
@@ -471,6 +487,7 @@ class Hack {
         this.ctx.clearRect(0, 0, innerWidth, innerHeight)
         this.drawESP()
         this.drawFPS()
+        this.autoRespawn()
         requestAnimationFrame(this.render.bind(this))
     }
 
@@ -527,7 +544,8 @@ GM_xmlhttpRequest({
             .replace(/(\w+).exports\.ambientVal/, 'window.hack.hooks.config = $1.exports, $1.exports.ambientVal')
             .replace(/window\.updateWindow=function/, 'windows.push({header: "Hack Settings",html: "", gen: function () {for (var t = "", e = 0; e < window.hack.settingsMenu.length; ++e){window.hack.settingsMenu[e].pre && (t += window.hack.settingsMenu[e].pre) , t += "<div class=\'settName\'>" + window.hack.settingsMenu[e].name + " " + window.hack.settingsMenu[e].html() + "</div>";}return t;}});window.hack.setupSettings();\nwindow.updateWindow=function')
             .replace(/window\.addEventListener\("keydown",function\((\w+)\){/, 'window.addEventListener("keydown",function($1){if(document.activeElement!=chatInput){window.hack.keyDown($1)}')
-            .replace(/window\.addEventListener\("keyup",function\((\w+)\){/, 'window.addEventListener("keyup",function($1){if(document.activeElement!=chatInput){window.hack.keyUp($1)}');
+            .replace(/window\.addEventListener\("keyup",function\((\w+)\){/, 'window.addEventListener("keyup",function($1){if(document.activeElement!=chatInput){window.hack.keyUp($1)}')
+            .replace(/hitHolder\.innerHTML=(\w+)}\((\w+)\),(\w+).update\((\w+)\)(.*)"block"==menuHolder\.style\.display/, 'hitHolder.innerHTML=$1}($2),$3.update($4),"block" == menuHolder.style.display');
 
 
         GM_xmlhttpRequest({
