@@ -1,5 +1,5 @@
 # KrunkerESP/Aimbot
-
+BIG SHOUTOUT TO V2 J for doing everything
 # Click this link to instal if you have tamper monkey 
 https://greasyfork.org/en/scripts/374149-krunker-io-hack
 
