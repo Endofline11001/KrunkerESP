@@ -2,9 +2,11 @@
 
 ## How to install:
 ```
-Download this Repo, and unzip file. Go into Chrome > More Tools > Extensions,
-and turn on Developer mode. Then click load unpacked extension, choose the unzipped
-file and upload the whole thing. Then you're all set!
+1. Download this Repo (zip), and unzip file
+2. Go into Chrome > More Tools > Extensions
+3. Turn on Developer mode if not on
+4. Click load unpacked extension, choose the unzipped folder
+5. Open up krunker.io and you're done
 ```
 
 
