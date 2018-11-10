@@ -1,11 +1,16 @@
-# KrunkerESP/Aimbot
-BIG SHOUTOUT TO V2 J for doing everything
-# Click this link to instal if you have tamper monkey 
-https://greasyfork.org/en/scripts/374149-krunker-io-hack
+# Krunker Cheat Update 0.9.9.94
 
+## Update Logs
+```
+fix game check ban & send ban
+fix aimbot
+```
 
-# Link to tampermonkey
-To install hack, make sure you have the TamperMonkey extension, found here: https://tampermonkey.net/
-
-# In case greasyfork is being gay
-Once you have the extension, go to the dashboard and create a new file, and copy paste the code from the .js file here into that new file. Save it and make sure its on and you are all set. Open Krunker.io and changes should be visible. Hold right click for aimbot. Works best with revolver. 
+## Feature
+```
+ESP NAME
+Aimbot
+Auto Shoot
+No Recoil
+Bhop
+```
