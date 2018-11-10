@@ -10,12 +10,12 @@
 ```
 
 
-## Update Logs
+## Update Logs:
 ```
 Aimbot has an updated refresh rate
 ```
 
-## Features
+## Features:
 ```
 ESP Players (See through walls)
 Aimbot (headshot priority)
