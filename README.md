@@ -1,12 +1,19 @@
-# Krunker Cheat Update 0.9.9.94
+# Krunker Cheat Update 0.2
+
+## How to install:
+```
+Download this Repo, and unzip file. Go into Chrome > More Tools > Extensions,
+and turn on Developer mode. Then click load unpacked extension, choose the unzipped
+file and upload the whole thing. Then you're all set!
+```
+
 
 ## Update Logs
 ```
-fix game check ban & send ban
-fix aimbot
+Aimbot has an updated refresh rate
 ```
 
-## Feature
+## Features
 ```
 ESP NAME
 Aimbot
