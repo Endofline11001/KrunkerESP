@@ -17,9 +17,9 @@ Aimbot has an updated refresh rate
 
 ## Features
 ```
-ESP NAME
-Aimbot
+ESP Players (See through walls)
+Aimbot (headshot priority)
 Auto Shoot
 No Recoil
-Bhop
+Bhop (Auto Jump)
 ```
